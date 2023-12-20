@@ -1,0 +1,54 @@
+1. Nombre del propietario de la agenda.
+
+//propietario/identificadores/nombre
+Alma
+
+2. Teléfono de casa del propietario.
+
+//propietario/telefonos/casa
+942124567
+
+3. Nombres y apellidos de los contactos de la agenda.
+
+//contactos/persona/identificadores
+Inés López Pérez
+Roberto Gutiérrez Gómez
+Juan Sánchez Martínez
+
+4. Nombre e identificador de cada contacto.
+
+//contactos/persona/@id | //contactos/persona/identificadores/nombre
+ id="p01"
+<nombre>Inés</nombre>
+ id="p02"
+<nombre>Roberto</nombre>
+ id="p03"
+<nombre>Juan</nombre>
+
+
+5. Datos del contacto con identificador p02.
+
+//contactos/persona[@id='p02']
+<persona id="p02">
+  <identificadores>
+    <nombre>Roberto</nombre>
+    <apellidos>Gutiérrez Gómez</apellidos>
+  </identificadores>
+  <direccion>
+    <calle>El Marranito 4, 2F</calle>
+    <localidad>Santander</localidad>
+    <cp>39004</cp>
+  </direccion>
+  <telefonos>
+    <movil>970987456</movil>
+    <casa>942333323</casa>
+  </telefonos>
+</persona>
+
+
+6. Identificadores de los contactos que tienen móvil.
+
+/agenda/contactos/persona[telefonos/movil]/@id
+ id="p01"
+ id="p02"
+ id="p03"

@@ -1,0 +1,62 @@
+1. Extraer todos los elementos <peso> (etiqueta incluida).
+
+/inventario/producto/@codigo |  /inventario/producto/peso
+ codigo="AAA-111"
+<peso unidad="g">480</peso>
+ codigo="ACD-981"
+<peso unidad="kg">1.8</peso>
+ codigo="DEZ-138"
+<peso unidad="g">50</peso>
+
+
+2. Extraer las cantidades de todos los elementos <peso> (sin la etiqueta <peso>).
+
+/inventario/producto/peso/text()
+480
+1.8
+50
+
+3. Extraer el peso del último elemento.
+
+(/inventario/producto[last()]/peso/text())[1]
+50
+
+4. Extraer las distintas unidades en las que se han almacenado los pesos.
+
+/inventario/producto/peso/@unidad
+ unidad="g"
+ unidad="kg"
+ unidad="g"
+
+
+5. Extraer el penúltimo codigo.
+
+/inventario/producto[last()-1]/@codigo
+ codigo="ACD-981"
+
+
+6. Extraer el peso del elemento cuyo codigo sea AAA-111.
+
+/inventario/producto[@codigo = 'AAA-111']/peso
+<peso unidad="g">480</peso>
+
+
+7. Extraer el nombre de los productos que hayan puesto el peso en gramos.
+
+/inventario/producto[peso/@unidad = 'g']/nombre
+<nombre>Teclado</nombre>
+<nombre>Raton</nombre>
+
+
+8. Extraer el codigo de los productos cuyo nombre sea Monitor.
+
+/inventario/producto[nombre = 'Monitor']/@codigo
+ codigo="ACD-981"
+
+
+9. Extraer el código de los productos que pesen más de un cuarto de kilo.
+
+/inventario/producto[peso[number(.) > 0.25]]/@codigo
+ codigo="AAA-111"
+ codigo="ACD-981"
+ codigo="DEZ-138"

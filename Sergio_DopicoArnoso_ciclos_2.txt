@@ -1,0 +1,61 @@
+1. Nombre del instituto.
+
+/ies/nombre
+IES Gonzalo Nazaareno
+
+2. Página web del instituto.
+
+/ies/web
+http://www.gonzalonazareno.org
+
+3. Nombre de los ciclos formativos.
+
+/ies/ciclos/ciclo/nombre
+Sistemas Microinformáticos y Redes
+Desarrollo de Aplicaciones Web
+Administración de Sistemas Informáticos en Red
+
+4. Siglas por las que se conocen los ciclos formativos.
+
+/ies/ciclos/ciclo/@id
+ id="ASIR"
+ id="DAW"
+ id="SMR"
+
+
+5. Años en los que se publicaron los decretos de título de los ciclos formativos.
+
+/ies/ciclos/ciclo/decretoTitulo/@año
+ año="2009"
+ año="2010"
+ año="2008"
+
+
+6. Ciclos formativos de Grado Medio (se trata de obtener el elemento completo).
+
+/ies/ciclos/ciclo[grado='Medio']
+<ciclo id="SMR">
+  <nombre>Sistemas Microinformáticos y Redes</nombre>
+  <grado>Medio</grado>
+  <decretoTitulo año="2008"/>
+</ciclo>
+
+7. Nombre de los ciclos formativos de Grado Superior.
+
+/ies/ciclos/ciclo[grado='Superior']/nombre
+<nombre>Administración de Sistemas Informáticos en Red</nombre>
+<nombre>Desarrollo de Aplicaciones Web</nombre>
+
+
+8. Nombre de los ciclos formativos anteriores a 2010.
+
+/ies/ciclos/ciclo[decretoTitulo/@año < 2010]/nombre
+<nombre>Administración de Sistemas Informáticos en Red</nombre>
+<nombre>Sistemas Microinformáticos y Redes</nombre>
+
+
+9. Nombre de los ciclos formativos de 2008 o 2010.
+
+/ies/ciclos/ciclo[decretoTitulo/@año = 2008 or decretoTitulo/@año = 2010]/nombre
+<nombre>Desarrollo de Aplicaciones Web</nombre>
+<nombre>Sistemas Microinformáticos y Redes</nombre>
